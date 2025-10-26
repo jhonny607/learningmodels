@@ -5,7 +5,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import Lasso, Ridge
 from sklearn.linear_model import LinearRegression
-
 class TrainModel:
     def __init__(self,X,Y):
         self.Y = Y
