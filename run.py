@@ -12,3 +12,4 @@ X = preprocessor_run[feature_cols]
 y = preprocessor_run['price_doc']
 trainer = TrainModel(X,y)
 trainer.train()
+

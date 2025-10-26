@@ -3,7 +3,6 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 
 
-
 class Preprocessor:
     def __init__(self, df: pd.DataFrame):
         self.df = df

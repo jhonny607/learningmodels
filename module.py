@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
-from sklearn.linear_model import Lasso
+from sklearn.linear_model import Lasso, Ridge
 from sklearn.linear_model import LinearRegression
 
 class TrainModel:
@@ -38,7 +38,16 @@ class TrainModel:
         y_pred_test_lasso = model_lasso.predict(X_test)
         rmse_train_lasso = np.sqrt(mean_squared_error(Y_train, y_pred_train_lasso))
         rmse_test_lasso = np.sqrt(mean_squared_error(Y_test, y_pred_test_lasso))
-
         print('Lasso')
         print(f'rmse_train: {rmse_train_lasso}')
         print(f'rmse_test: {rmse_test_lasso}')
+
+        model_ridge = Ridge(alpha=0.1,random_state=42)
+        model_ridge.fit(X_train,Y_train)
+        y_pred_train = model_ridge.predict(X_train)
+        y_pred_test = model_ridge.predict(X_test)
+        rmse_train_ridge=np.sqrt(mean_squared_error(Y_train,y_pred_train))
+        rmse_test_ridge=np.sqrt(mean_squared_error(Y_test,y_pred_test))
+        print('Ridge')
+        print(f'rmse_train: {rmse_train_ridge}')
+        print(f'rmse_test: {rmse_test_ridge}')
